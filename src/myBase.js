@@ -1,7 +1,5 @@
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
-import "firebase/compat/firestore";
-import "firebase/compat/storage";
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -14,7 +12,13 @@ const firebaseConfig = {
   };
 
 
-firebase.initializeApp(firebaseConfig)
+// firebase.initializeApp(firebaseConfig)
 
-export const authService = firebase.auth(); //auth서비스를 아주 많이 호출할 예정이라 
-                        // 매번 firebase.auth()로 쓰기 귀찮아서 미리 만들어서 넘겨줌 
+// export const authService = firebase.auth(); //auth서비스를 아주 많이 호출할 예정이라 
+//                         // 매번 firebase.auth()로 쓰기 귀찮아서 미리 만들어서 넘겨줌 
+
+                        
+const app = initializeApp(firebaseConfig);
+
+export const firebaseInstance = app;
+export const authService = getAuth();
