@@ -6,7 +6,7 @@ import Navigation from "./Navigation.js";
 import Profile from "../routes/Profile"
 
 
-export default function AppRouter({ isLoggedIn }){
+export default function AppRouter({ isLoggedIn, userObj }){
     
 
     return (
@@ -15,7 +15,7 @@ export default function AppRouter({ isLoggedIn }){
             <Routes>
                 {isLoggedIn ? 
                 <>
-                <Route exact path="/" element={<Home />}></Route> 
+                <Route exact path="/" element={<Home userObj={userObj}/>}></Route> 
                 <Route exact path="/profile" element={<Profile />}></Route> 
                 </>
                 : 
